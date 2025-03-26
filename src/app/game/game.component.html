@@ -1,0 +1,18 @@
+<app-header/>
+<app-alert/>
+
+<app-spinner [visible]="visible"/>
+
+<h1 class="text-center text-3xl text-white mt-[2.5%] mb-[1%]">{{game.team1}} VS {{game.team2}}</h1>
+
+<p class="text-lime-500 text-center text-normal">{{game.status}}</p>
+
+<h2 class="text-center text-2xl text-white mt-[2%] mb-[1%]">Apostadores</h2>
+
+
+<div *ngFor="let bettor of bettors">
+    <div class="flex justify-center items-center">
+        <p class="text-white md:text-lg text-normal   underline decoration-sky-500 underline-offset-8 decoration-2 md:mb-[1%] mb-[5%]">{{bettor.wallet}} -  {{teamTransform(bettor.team)}}</p>
+    </div>
+</div>
+

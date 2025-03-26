@@ -1,0 +1,59 @@
+<app-header/>
+<app-alert></app-alert>
+
+<app-spinner [visible]="visible"></app-spinner>
+
+<div class="text-white flex  justify-center mt-[2.5%]">
+
+    <div class="flex justify-between  w-full w-[100%] md:w-[70%]">
+        <div class="border-r-2 border-sky-500 w-[50%]">
+            <h1 class="text-center text-lg p-2">Adicionar Aposta</h1>
+
+            <div class="flex-none mb-5 p-2">
+                <label class="text-normal">Time 1 : </label>
+                <input [(ngModel)]="newGames.team1" class="bg-slate-800 text-white rounded-md text-normal text-pretty p-1 border-2 border-sky-500 focus:border-pink-500 focus:outline" placeholder="Adicionar Time 1" />
+            </div>
+
+            <div class="flex-none mb-5 p-2">
+                <label class="text-normal">Time 2 : </label>
+                <input [(ngModel)]="newGames.team2" class="bg-slate-800 text-white rounded-md text-normal text-pretty p-1  border-2 border-sky-500 focus:border-pink-500 focus:outline" placeholder="Adicionar Time 2" />
+            </div>
+
+            <button (click)="addGame()" class="p-2 bg-orange-500 font-bold text-normal rounded-md ml-[12%] hover:bg-lime-500">Adicionar Aposta</button>
+
+        </div>
+    
+        <div class="border-pink-500 w-[50%]">
+            <h1 class="text-center text-lg mb-[3%]">Alterar Endereço do Contrato</h1>
+            <div class="flex-none ml-[10%]">
+                <label class="text-normal">Novo Endereço do Contrato : </label>
+                <input class="bg-slate-800 rounded-md p-1 border-sky-500 border-2 focus:border-pink-500 focus:outline" placeholder="Endereço do Contrato" />
+                <button class="text-normal bg-orange-500 p-2 rounded-md font-bold ml-[10%] mt-[3%] hover:bg-lime-500">Salvar</button>
+            </div>
+
+            <p class="ml-[10%] mt-[5%] font-bold">Endereço atual : {{contractAddress}}</p>
+            
+        </div>
+    </div>
+
+</div>
+
+<div class="border-t-2 mt-[5%] w-[100%] md:w-[70%] ml-[0%] md:ml-[15%]" >
+    <h1 class="text-white text-lg text-center mt-[1%] font-bold">Jogos Abertos</h1>
+
+    <div *ngFor="let game of games">
+        <div class="flex  text-white font-bold border-b-2 border-sky-500 mt-[3%] hover:border-pink-500 p-2">
+            <p class="text-normal">
+                <select [(ngModel)]="choice[game.id]" class="text-white bg-slate-800 rounded-md p-1">
+                    <option value="n">{{game.team1}} VS {{game.team2}}</option>
+                    <option value="0">{{game.team1}} </option>
+                    <option value="1">{{game.team2}} </option>
+                </select>
+               
+            </p>
+
+            <button (click)="finalizeBet(game.id)" class="ml-[1%] p-1 bg-orange-500 rounded-md hover:bg-lime-500">Finalizar Game</button>
+        </div>
+    </div>
+
+</div>

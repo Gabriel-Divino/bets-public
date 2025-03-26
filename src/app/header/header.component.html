@@ -1,0 +1,18 @@
+<div class="bg-slate-950 text-white py-4 w-full">
+    <div class="container mx-auto flex justify-between items-center">
+        <h1 routerLink="/" class="text-2xl text-white-500  py-1 rounded text-center  w-20 hover:bg-slate-900 hover:border-slate-500 hover:border" >
+            Bet
+        </h1>
+        <div *ngIf="wallet == null; else elseTemplate">
+            <button (click)="login()" class="container font-bold bg-cyan-400 rounded-full py-2 w-60 hover:bg-pink-500 flex items-center justify-center">
+                <img class="w-7" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/640px-MetaMask_Fox.svg.png"  />
+                <p>Entrar Com Metamask</p>
+            </button>
+        </div>
+        <ng-template #elseTemplate>
+            <button (click)="logOut()" class="container w-20 rounded-full bg-red-500 font-bold py-2 hover:bg-neutral-500 items-center justify-center">
+                <p>Sair</p>
+            </button>
+          </ng-template>
+    </div>
+</div>

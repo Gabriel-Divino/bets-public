@@ -1,0 +1,32 @@
+<app-header></app-header>
+<app-alert></app-alert>
+
+<app-spinner [visible]="visible" ></app-spinner>
+
+<h1 class="text-white text-center text-3xl mt-5 font-bold mb-10">Apostas</h1>
+
+
+<div *ngFor="let game of games">
+
+    <div class="flex   justify-center items-center mb-10">
+        <div class="flex  justify-between bg-gray-800 p-6 md:w-[50%]  w-[100%] rounded-lg">
+
+            <div class="container w-[100%]">
+                <p class="text-white text-2xl font-bold mb-3"> {{game.team1}}</p>
+                <button (click)="makeBet(game.id,0)" class="bg-lime-500 p-2 text-white rounded-lg hover:bg-pink-800">Apostar</button>
+            </div>
+        
+            <p class="text-white text-2xl font-bold">VS</p>
+            <a routerLink="/game/{{game.id}}" class="text-sky-500 text-lg text-center  absolute ml-[19%] w-[50%] md:w-[10%] mt-[10%] md:mt-[3%] hover:underline hover:underline-offset-4 hover:text-pink-500">Verificar Aposta</a>
+
+            <div class="container  w-[100%]">
+                <p class="text-white text-2xl font-bold mb-3 text-right">{{game.team2}}</p>
+                <button (click)="makeBet(game.id,1)" class="text-white bg-green-500 p-2 rounded-lg float-right hover:bg-pink-800">Apostar</button>
+            </div>
+        </div>
+       
+    </div>
+
+</div>
+
+

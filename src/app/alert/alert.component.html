@@ -1,0 +1,10 @@
+<div *ngIf="_wallet != null">
+    <div class="bg-sky-500  py-2 md:text-lg sm:text-sm text-pretty text-white rounded-lg flex">
+        <p class="md:ml-20 font-bold sm:ml-0 truncate">Carteira  : {{_wallet}}</p>
+        <div *ngIf="isAdmin == true">
+            <p routerLink="/manage" class="md:ml-20 sm:ml-0 text-red-800  font-bold md:text-xl sm:text-sm underline underline-offset-4 hover:text-gray-400">
+                Painel de Gerenciamento
+            </p>
+        </div>
+    </div>
+</div>
